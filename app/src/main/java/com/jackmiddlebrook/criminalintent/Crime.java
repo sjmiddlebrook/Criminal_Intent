@@ -1,5 +1,6 @@
 package com.jackmiddlebrook.criminalintent;
 
+import java.text.DateFormat;
 import java.util.Date;
 import java.util.UUID;
 
@@ -33,6 +34,11 @@ public class Crime {
 
     public Date getDate() {
         return mDate;
+    }
+
+    public String getFormattedDate() {
+        DateFormat df = DateFormat.getDateTimeInstance();
+        return df.format(mDate);
     }
 
     public void setDate(Date date) {

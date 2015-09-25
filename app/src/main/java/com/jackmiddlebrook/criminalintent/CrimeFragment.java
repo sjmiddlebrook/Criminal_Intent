@@ -13,8 +13,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
-import java.text.DateFormat;
-
 /**
  * Fragment that updates Crime data based on user inputs
  * Created by jack on 9/24/15.
@@ -55,8 +53,7 @@ public class CrimeFragment extends Fragment {
         });
 
         mDateButton = (Button) v.findViewById(R.id.crime_date);
-        DateFormat df = DateFormat.getDateTimeInstance();
-        mDateButton.setText(df.format(mCrime.getDate()));
+        mDateButton.setText(mCrime.getFormattedDate());
         mDateButton.setEnabled(false);
 
         mSolvedCheckBox = (CheckBox) v.findViewById(R.id.crime_solved);
