@@ -15,8 +15,11 @@ public class Crime {
     private boolean mSolved;
 
     public Crime() {
-        // Generate unique identifier
-        mId = UUID.randomUUID();
+        this(UUID.randomUUID());
+    }
+
+    public Crime(UUID uuid) {
+        mId = uuid;
         mDate = new Date();
     }
 
@@ -37,7 +40,7 @@ public class Crime {
     }
 
     public String getFormattedDate() {
-        DateFormat df = DateFormat.getDateTimeInstance();
+        DateFormat df = DateFormat.getDateInstance();
         return df.format(mDate);
     }
 

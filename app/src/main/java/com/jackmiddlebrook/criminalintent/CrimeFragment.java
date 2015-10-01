@@ -53,6 +53,13 @@ public class CrimeFragment extends Fragment {
         setHasOptionsMenu(true);
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        CrimeLab.get(getActivity()).updateCrime(mCrime);
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -113,7 +120,7 @@ public class CrimeFragment extends Fragment {
             case R.id.menu_item_delete_crime:
                 // delete the crime
                 CrimeLab crimeLab = CrimeLab.get(getActivity());
-                crimeLab.getCrimes().remove(mCrime);
+                crimeLab.deleteCrime(mCrime);
                 getActivity().finish();
                 return true;
             default:
